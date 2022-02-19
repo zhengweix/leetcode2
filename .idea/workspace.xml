@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b6465c0-2ea1-4004-accd-1adb0fa6b622" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twoSum.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,12 +35,15 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="1oHKUIWwq6wmuGhDV3RFToMsU92" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -48,10 +51,11 @@
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="Python" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager">
-    <configuration name="2. addTwoNumbers" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+    <configuration name="949.largestTimeFromDigits" type="PythonConfigurationType" factoryName="Python">
+      <module name="leetcode" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="$PROJECT_DIR$/../venv/bin/python" />
@@ -59,9 +63,8 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/2. addTwoNumbers.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/949.largestTimeFromDigits.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -122,7 +125,17 @@
       <workItem from="1644985538207" duration="12531000" />
       <workItem from="1645049723973" duration="757000" />
       <workItem from="1645052302817" duration="59000" />
-      <workItem from="1645052455301" duration="13645000" />
+      <workItem from="1645052455301" duration="14008000" />
+      <workItem from="1645086069721" duration="1580000" />
+      <workItem from="1645229720547" duration="66000" />
+      <workItem from="1645229795742" duration="322000" />
+      <workItem from="1645230171708" duration="6000" />
+      <workItem from="1645230183550" duration="12000" />
+      <workItem from="1645230207239" duration="7000" />
+      <workItem from="1645230226838" duration="4000" />
+      <workItem from="1645230241818" duration="49000" />
+      <workItem from="1645230346685" duration="16000" />
+      <workItem from="1645230366265" duration="17523000" />
     </task>
     <servers />
   </component>
@@ -140,8 +153,18 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>8</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint suspend="NONE" type="javascript-exception" />
         <breakpoint type="python-exception">
@@ -154,8 +177,9 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/leetcode$Homework1e_5.coverage" NAME="Homework1e-5 Coverage Results" MODIFIED="1615636735591" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop/Me/IIT/#CS535/cs430/cs430" />
+    <SUITE FILE_PATH="coverage/leetcode$949_largestTimeFromDigits.coverage" NAME="949.largestTimeFromDigits Coverage Results" MODIFIED="1645258289608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode$Solutions.coverage" NAME="Solutions Coverage Results" MODIFIED="1615636450280" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode$leetcode.coverage" NAME="leetcode Coverage Results" MODIFIED="1645052321014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../venv" />
-    <SUITE FILE_PATH="coverage/leetcode$main.coverage" NAME="2. addTwoNumbers Coverage Results" MODIFIED="1645084379520" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/leetcode$main.coverage" NAME="main Coverage Results" MODIFIED="1645230616104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
