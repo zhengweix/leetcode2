@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b6465c0-2ea1-4004-accd-1adb0fa6b622" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/367.isPerfectSquare.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/66.plusOne.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/70.climbStairs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/965.isUnivalTree.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/965.isUnivalTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/965.isUnivalTree.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +145,7 @@
       <workItem from="1645837883999" duration="407000" />
       <workItem from="1645845824633" duration="8472000" />
       <workItem from="1646084130574" duration="135000" />
-      <workItem from="1646425417427" duration="13718000" />
+      <workItem from="1646425417427" duration="13803000" />
     </task>
     <servers />
   </component>
