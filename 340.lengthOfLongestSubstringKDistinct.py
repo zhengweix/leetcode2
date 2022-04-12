@@ -9,10 +9,8 @@ class Solution:
             dict[c] = i
             while len(dict) > k:
                 c_ = s[start]
-                i_ = dict[c_] - 1
-                if i_ > 0:
-                    dict[c_] = i_
-                else:
+                dict[c_] -= 1
+                if dict[c_] == 0:
                     del dict[c_]
                 start += 1
                 d = max(d, end - start + 1)
