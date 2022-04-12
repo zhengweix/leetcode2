@@ -13,5 +13,5 @@ class Solution:
                 if dict[c_] == 0:
                     del dict[c_]
                 start += 1
-                d = max(d, end - start + 1)
+            d = max(d, end - start + 1)
         return d
