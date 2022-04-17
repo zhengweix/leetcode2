@@ -3,8 +3,7 @@ class Solution:
         start = 0
         dict = {}
         d = 0
-        for end in range(len(fruits)):
-            fruit = fruits[end]
+        for end, fruit in enumerate(fruits):
             if fruit not in dict:
                 dict[fruit] = 0
             dict[fruit] += 1

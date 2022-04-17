@@ -2,7 +2,7 @@ class Solution:
     def lengthOfLongestSubstringKDistinct(self, s: str, k: int) -> int:
         dict = {}
         start, d, d_ = 0, 0, 0
-        for end in range(len(s)):
+        for end, c in enumerate(s):
             c = s[end]
             i = dict[c] if c in dict else 0
             i += 1
