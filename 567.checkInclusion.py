@@ -1,7 +1,8 @@
+from collections import defaultdict
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
         start, match = 0, 0
-        ch = collections.defaultdict(int)
+        ch = defaultdict(int)
         n = len(s1)
         for c in s1:
             ch[c] += 1
