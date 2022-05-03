@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b6465c0-2ea1-4004-accd-1adb0fa6b622" name="Default Changelist" comment="k">
-      <change afterPath="$PROJECT_DIR$/1592.reorderSpaces.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1929.getConcatenation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1047.removeDuplicates.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/494.findTargetSumWays.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/530.getMinimumDifference.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/551.checkRecord.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/720.longestWord.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/724.pivotIndex.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/733.floodFill.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/766.isToeplitzMatrix.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/771.numJewelsInStones.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/852.peakIndexInMountainArray.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/977.sortedSquares.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -164,7 +173,9 @@
       <workItem from="1651062418582" duration="15032000" />
       <workItem from="1651136181485" duration="4523000" />
       <workItem from="1651232872454" duration="26805000" />
-      <workItem from="1651445211347" duration="25447000" />
+      <workItem from="1651445211347" duration="25566000" />
+      <workItem from="1651522532131" duration="13030000" />
+      <workItem from="1651563061129" duration="11770000" />
     </task>
     <servers />
   </component>
@@ -202,7 +213,7 @@
     <SUITE FILE_PATH="coverage/leetcode$main.coverage" NAME="main Coverage Results" MODIFIED="1645230616104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode$949_largestTimeFromDigits.coverage" NAME="leetcode Coverage Results" MODIFIED="1645264692269" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode$leetcode.coverage" NAME="leetcode Coverage Results" MODIFIED="1646517607272" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/1528_restoreString_py$leetcode.coverage" NAME="leetcode Coverage Results" MODIFIED="1651488389454" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/1528_restoreString_py$leetcode.coverage" NAME="leetcode Coverage Results" MODIFIED="1651583413510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/509_fib_py$leetcode.coverage" NAME="leetcode Coverage Results" MODIFIED="1649740229942" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode$Solutions.coverage" NAME="Solutions Coverage Results" MODIFIED="1615636450280" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
