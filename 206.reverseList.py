@@ -4,9 +4,13 @@
 #         self.val = val
 #         self.next = next
 class Solution:
+    '''
+    Given the head of a singly linked list, reverse the list, and return the reversed list.
+    '''
     def reverseList(self, head: ListNode) -> ListNode:
         pre = None
         while head:
             head.next, head, pre = pre, head.next, head
 
         return pre
+#649 2074 2130 234
