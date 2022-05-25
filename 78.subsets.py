@@ -1,12 +1,25 @@
 class Solution:
-    def subsets(self, nums: List[int]) -> List[List[int]]:
-        lists = [[]]
-        for n in nums:
-            i = 0
-            nn = len(lists)
-            for i in range(nn):
-                set = list(lists[i])
-                set.append(n)
-                lists.append(set)
+    '''
+    Given an integer array nums of unique elements, return all possible subsets (the power set).
+    The solution set must not contain duplicate subsets. Return the solution in any order.
 
-        return lists
+    Input: nums = [1,2,3]
+    Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+
+    Input: nums = [0]
+    Output: [[],[0]]
+
+    1 <= nums.length <= 10
+    -10 <= nums[i] <= 10
+    All the numbers of nums are unique.
+    '''
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        subsets = [[]]
+        for num in nums:
+            for i in range(len(subsets)):
+                set = list(subsets[i])
+                set.append(num)
+                subsets.append(set)
+
+        return subsets
+#320 784
