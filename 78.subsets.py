@@ -16,10 +16,11 @@ class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         subsets = [[]]
         for num in nums:
-            for i in range(len(subsets)):
+            n = len(subsets)
+            for i in range(n):
                 set = list(subsets[i])
                 set.append(num)
                 subsets.append(set)
 
         return subsets
-#320 784
+#320 784 2044
