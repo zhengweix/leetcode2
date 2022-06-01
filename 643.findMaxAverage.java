@@ -1,5 +1,3 @@
-package com.leetcode;
-
 class Solution {
     public static double findMaxAverage(int[] nums, int k) {
         double result = -Double.MAX_VALUE;

@@ -1,5 +1,3 @@
-package com.leetcode;
-
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         HashMap<Integer, Integer> dict = new HashMap<>();

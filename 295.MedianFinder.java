@@ -1,4 +1,3 @@
-import java.util.*;
 class MedianFinder {
     PriorityQueue<Integer> smallNums;
     PriorityQueue<Integer> largeNums;

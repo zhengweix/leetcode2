@@ -1,4 +1,3 @@
-package com.leetcode;
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> subsets = new ArrayList<>();

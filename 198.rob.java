@@ -1,4 +1,3 @@
-package com.leetcode;
 class Solution {
     public int rob(int[] nums) {
         int n = nums.length;

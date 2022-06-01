@@ -1,4 +1,3 @@
-package com.leetcode;
 class Solution {
     public int missingNumber(int[] nums) {
         int i = 0, n = nums.length;
