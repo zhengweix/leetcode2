@@ -25,4 +25,17 @@ class Solution:
                 j += 1
             i += 1
         return num
+
+    def findKthPositive1(self, arr: List[int], k: int) -> int:
+        num, miss, i = 1, 0, 0
+        n = len(arr)
+        while i < n:
+            if arr[i] != num:
+                miss += 1
+                if miss == k:
+                    return num
+            else:
+                i += 1
+            num += 1
+        return arr[n-1] + k - miss
 #2195
