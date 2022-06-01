@@ -15,7 +15,6 @@ class Solution:
     intervals[i].length == 2
     0 <= starti <= endi <= 104
     '''
-
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         result = []
         intervals.sort(key=lambda x: x[0])

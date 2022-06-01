@@ -11,6 +11,7 @@ class Solution:
     Output: -1
     Explanation: 2 does not exist in nums so return -1
 
+    Constraints:
     1 <= nums.length <= 104
     -104 < nums[i], target < 104
     All the integers in nums are unique.
