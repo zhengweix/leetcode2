@@ -28,6 +28,9 @@ class Solution:
     The number of nodes in the tree is in the range [0, 5000].
     -1000 <= Node.val <= 1000
     -1000 <= targetSum <= 1000
+
+    Next challenges:
+    113 437 666 129
     '''
     def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
         if not root:
@@ -48,4 +51,3 @@ class Solution:
                     return helper(node.left, currentSum) or helper(node.right, currentSum)
 
         return True if helper(root, 0) else False
-#113 437 666 129

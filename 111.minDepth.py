@@ -5,6 +5,10 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+    '''
+    Next challenges:
+    510 666 426
+    '''
     def minDepth(self, root: Optional[TreeNode]) -> int:
         def helper(node, minDepth):
             if not node:
@@ -18,4 +22,3 @@ class Solution:
                 return helper(node.right, minDepth)
 
         return helper(root, 0)
-#510 666 426

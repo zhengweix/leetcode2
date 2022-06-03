@@ -1,4 +1,4 @@
-class Main {
+class Solution {
     public List<Integer> addToArrayForm(int[] num, int k) {
         ArrayList<Integer> numList = new ArrayList<>();
         for (int i = num.length - 1; i >= 0; i--) {

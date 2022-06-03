@@ -28,6 +28,9 @@ class Solution:
     pos is -1 or a valid index in the linked-list.
 
     Follow up: Can you solve it using O(1) (i.e. constant) memory
+
+    Next challenges:
+    575 1876
     '''
     def hasCycle(self, head: ListNode) -> bool:
         slow, fast = head, head
@@ -37,4 +40,3 @@ class Solution:
             if fast == slow:
                 return True
         return False
-#575 1876

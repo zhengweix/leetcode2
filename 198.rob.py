@@ -16,6 +16,9 @@ class Solution:
     Constraints:
     1 <= nums.length <= 100
     0 <= nums[i] <= 400
+
+    Next challenges:
+    740 2140 152 213 515 337 740
     '''
     def rob(self, nums: List[int]) -> int:
         n = len(nums)
@@ -31,4 +34,3 @@ class Solution:
             dp[i] = max(dp[i-1], dp[i-2]+nums[i], dp[i-3]+nums[i])
 
         return dp[n-1]
-#740 2140 152 213 515 337 740

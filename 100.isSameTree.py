@@ -5,6 +5,10 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+    '''
+    Next challenges:
+    1026 1905 2128
+    '''
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         def helper(node, lst):
             if node:
@@ -24,4 +28,3 @@ class Solution:
         helper(p, l1)
         helper(q, l2)
         return l1 == l2
-#1026 1905 2128

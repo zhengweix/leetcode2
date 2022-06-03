@@ -21,6 +21,9 @@ class Solution:
     0 <= num[i] <= 9
     num does not contain any leading zeros except for the zero itself.
     1 <= k <= 104
+
+    Next challenges:
+    247 462 1429
     '''
     def addToArrayForm(self, num: List[int], k: int) -> List[int]:
         sk = str(k)
@@ -51,5 +54,3 @@ class Solution:
             num = [k % 10] + num
             k //= 10
         return num
-
-#247 462 1429

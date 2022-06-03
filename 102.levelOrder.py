@@ -20,6 +20,9 @@ class Solution:
     Constraints:
     The number of nodes in the tree is in the range [0, 2000].
     -1000 <= Node.val <= 1000
+
+    Next challenges:
+    103 107 651 637 993 429
     '''
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         results = []
@@ -56,4 +59,3 @@ class Solution:
 
         queue = helper(root, {}, 0)
         return [queue[level] for level in queue]
-#103 107 651 637 993 429
