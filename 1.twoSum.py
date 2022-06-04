@@ -21,6 +21,9 @@ class Solution(object):
     Only one valid answer exists.
 
     Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
+
+    Next challenges:
+    15 18 167 170 653 1099 1679 1711 2006 2023 2200
     '''
     def twoSum(self, nums, target):
         d = {}

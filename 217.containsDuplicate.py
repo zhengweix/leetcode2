@@ -14,35 +14,9 @@ class Solution:
     Constraints:
     1 <= nums.length <= 105
     -109 <= nums[i] <= 109
+
+    Next challenges:
+    220
     '''
     def containsDuplicate(self, nums: List[int]) -> bool:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         return len(set(nums)) != len(nums)
-#220

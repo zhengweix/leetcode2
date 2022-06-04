@@ -14,6 +14,9 @@ class Solution:
     s and t consist of lowercase English letters.
 
     Follow up: What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
+
+    Next challenges:
+    49 266 438 2273
     '''
     def isAnagram(self, s: str, t: str) -> bool:
         if len(s) != len(t):
@@ -26,7 +29,18 @@ class Solution:
         return Counter(t) == Counter(s)
 
     def isAnagram2(self, s: str, t: str) -> bool:
-        chars = {}
+        if len(s) != len(t):
+            return False
+        chars1 = defaultdict(int)
+        chars2 = defaultdict(int)
+        for c in s:
+            chars1[c] += 1
+        for c in t:
+            chars2[c] += 1
+        for key, val in chars1.items():
+            if chars2[key] != val:
+                return False
+        return True
 
 
 

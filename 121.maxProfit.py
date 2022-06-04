@@ -16,34 +16,10 @@ class Solution:
     Constraints:
     1 <= prices.length <= 105
     0 <= prices[i] <= 104
+
+    Next challenges:
+    122 123 188 309 2012 2016 2291
     '''
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     def maxProfit(self, prices: list) -> int:
         minPrice = prices[0]
         profit = 0
