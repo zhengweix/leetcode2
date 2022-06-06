@@ -6,6 +6,7 @@ class Solution:
     Output: [12, 9, 2, 1]
     '''
     def subarraySum(self, nums: List[int], k: int) -> int:
-        dp = [[[]]] + []
-        return None
+        dp = [[[]]] + [[] for x in range(k)]
+        for num in nums:
+
 
