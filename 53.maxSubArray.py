@@ -17,43 +17,16 @@ class Solution:
     -104 <= nums[i] <= 104
 
     Follow up: If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
+
+    Next challenges:
+    152 697 978 1749 1746 2272
     '''
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     def maxSubArray(self, nums: List[int]) -> int:
-        sumx, sum_ = nums[0], 0
+        sum1, sum2 = nums[0], 0
         for num in nums:
-            if sum_ < 0:
-                sum_ = num
+            if sum2 < 0:
+                sum2 = num
             else:
-                sum_ += num
-
-            sumx = max(sumx, sum_)
-
-        return sumx
+                sum2 += num
+            sum1 = max(sum1, sum2)
+        return sum1
