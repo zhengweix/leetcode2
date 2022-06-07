@@ -15,5 +15,26 @@ class Solution:
     The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
 
     Follow up: Can you solve the problem in O(1) extra space complexity? (The output array does not count as extra space for space complexity analysis.)
+
+    Next challenges:
     '''
     def productExceptSelf(self, nums: List[int]) -> List[int]:
+        res, zeros, prod = [], [], 1
+        for i, num in enumerate(nums):
+            if num == 0:
+                zeros.append(i)
+            else:
+                prod = prod * num
+        len1, len2 = len(nums), len(zeros)
+        for i, num in enumerate(nums):
+            if len2 > 1:
+                return [0 for i in range(len1)]
+            elif len2 == 1:
+                if i == zeros[0]:
+                    res.append(prod)
+                else:
+                    res.append(0)
+            else:
+                prod1 = prod
+                res.append(prod1//num)
+        return res
