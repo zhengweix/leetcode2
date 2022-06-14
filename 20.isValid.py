@@ -37,6 +37,8 @@ class Solution:
         return stack == []
 
     def isValid1(self, s: str) -> bool:
+        if len(s) < 2:
+            return False
         stack = []
         for c in s:
             if c == '(':
@@ -46,9 +48,7 @@ class Solution:
             elif c == '{':
                 stack.append('}')
             else:
-                if len(stack) == 0:
-                    return False
-                if c != stack.pop():
+                if len(stack) == 0 or c != stack.pop():
                     return False
         return stack == []
 

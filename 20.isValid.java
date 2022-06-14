@@ -1,26 +1,26 @@
 class Solution {
     public boolean isValid(String s) {
-        ArrayList<Character> stack = new ArrayList();
+        if (s.length() < 2){
+            return false;
+        }
+        Stack<Character> stack = new Stack<>();
         for (char c: s.toCharArray()){
             switch (c) {
                 case '(':
-                    stack.add(')');
+                    stack.push(')');
                     break;
                 case '[':
-                    stack.add(']');
+                    stack.push(']');
                     break;
                 case '{':
-                    stack.add('}');
+                    stack.push('}');
                     break;
                 default:
-                    if (stack.size() == 0) {
-                        return false;
-                    }
-                    if(c != stack.remove(stack.size() - 1)) {
+                    if (stack.isEmpty() || stack.pop() != c) {
                         return false;
                     }
             }
         }
-        return stack == null;
+        return stack.isEmpty();
     }
 }

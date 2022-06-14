@@ -30,7 +30,7 @@ class Solution:
     Follow up: Can you solve it using O(1) (i.e. constant) memory
 
     Next challenges:
-    575 1876
+    1257 1367 1797
     '''
     def hasCycle(self, head: ListNode) -> bool:
         slow, fast = head, head

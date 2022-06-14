@@ -21,6 +21,9 @@ class Solution:
     -5000 <= Node.val <= 5000
 
     Follow up: A linked list can be reversed either iteratively or recursively. Could you implement both?
+
+    Next challenges:
+    234 156 2074 2130
     '''
     def reverseList(self, head: ListNode) -> ListNode:
         pre = None
