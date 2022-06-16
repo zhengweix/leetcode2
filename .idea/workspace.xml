@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8052ead7-0513-42b8-aec1-a41575c8fe78" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/11.maxArea.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/11.maxArea.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/152.maxProduct.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/153.findMin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/200.numIslands.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/33.search.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/49.groupAnagrams.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/141.hasCycle.py" beforeDir="false" afterPath="$PROJECT_DIR$/141.hasCycle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/20.isValid.java" beforeDir="false" afterPath="$PROJECT_DIR$/20.isValid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/20.isValid.py" beforeDir="false" afterPath="$PROJECT_DIR$/20.isValid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/206.reverseList.py" beforeDir="false" afterPath="$PROJECT_DIR$/206.reverseList.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/424.findRightInterval.py" beforeDir="false" afterPath="$PROJECT_DIR$/424.findRightInterval.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/19.removeNthFromEnd.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/417.pacificAtlantic.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/647.countSubstrings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/76.minWindow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/226.invertTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/226.invertTree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3.lengthOfLongestSubstring.py" beforeDir="false" afterPath="$PROJECT_DIR$/3.lengthOfLongestSubstring.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +194,11 @@
       <workItem from="1654571872243" duration="21991000" />
       <workItem from="1654744124757" duration="735000" />
       <workItem from="1655106234768" duration="2482000" />
-      <workItem from="1655161586341" duration="5965000" />
+      <workItem from="1655161586341" duration="6292000" />
+      <workItem from="1655239072989" duration="837000" />
+      <workItem from="1655337601794" duration="1161000" />
+      <workItem from="1655402599451" duration="1307000" />
+      <workItem from="1655406455839" duration="1785000" />
     </task>
     <servers />
   </component>
