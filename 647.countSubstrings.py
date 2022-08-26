@@ -20,3 +20,4 @@ class Solution:
     5 516
     '''
     def countSubstrings(self, s: str) -> int:
+        return

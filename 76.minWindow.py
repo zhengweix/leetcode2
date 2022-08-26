@@ -26,3 +26,12 @@ class Solution:
     Follow up: Could you find an algorithm that runs in O(m + n) time?
     '''
     def minWindow(self, s: str, t: str) -> str:
+        start, result = "", 0
+        dict = defaultdict(int)
+        for c in s:
+            dict[c] += 1
+
+        while start < len(s) - len(t):
+            else:
+                start += 1
+        return result
