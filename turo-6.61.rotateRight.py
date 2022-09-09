@@ -25,45 +25,47 @@ class Solution:
 
     Related Topics
     Linked List， Two Pointers
+
+    Next challenges:
+    Rotate Array
+    Split Linked List in Parts
     '''
     def rotateRight(self, head, k: int):
-        if head == None or head.next == None or k == 0:
-            return head
-        n = 1
-        head1 = head
-        while head1.next:
-            n += 1
-            head1 = head1.next
-        m = k%n
-        if m == 0:
+        if not head or not head.next:
             return head
 
-        l = 1
-        head2 = head
-        while head2.next:
-            if l >= n-m:
-                head3 = head2.next
-                head2.next = None
-                break
-            else:
-                head2 = head2.next
-                l += 1
-        head4 = head3
-        while head3.next:
-            head3 = head3.next
-        head3.next = head
-        return head4
+        n = 0
+        pointer0 = head
+        while pointer0:
+            pointer0 = pointer0.next
+            n += 1
+
+        m = k % n
+        if k == 0:
+            return head
+
+        pointer1, pointer2 = head, head
+        for i in range(m):
+            pointer2 = pointer2.next
+
+        while pointer2.next:
+            pointer1 = pointer1.next
+            pointer2 = pointer2.next
+
+        res = pointer1.next
+        pointer1.next = None
+        pointer2.next = head
+        return res
 
     def main(self):
-        head = ListNode(0)
-        head1 = self.rotateRight(head, 0)
-        if not head1.next:
+        head = ListNode(1)
+        head.next = ListNode(2)
+        head.next.next = ListNode(3)
+        head.next.next.next = ListNode(4)
+        head.next.next.next.next = ListNode(5)
+        head1 = self.rotateRight(head, 2)
+        while head1:
             print(head1.val)
-        else:
-            while head1.next:
-                print(head1.val)
-                head1 = head1.next
-            print(head1.val)
-
+            head1 = head1.next
 S = Solution()
 S.main()
