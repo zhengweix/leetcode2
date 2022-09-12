@@ -27,8 +27,11 @@ class Solution:
     ai != bi
     All the pairs [ai, bi] are distinct.
 
-    Related Topics
+    Related Topics:
     Depth-First Search, Breadth-First Search, Graph, Topological Sort
+
+    Next challenges:
+    Course Schedule, Alien Dictionary, Minimum Height Trees, Sequence Reconstruction, Course Schedule III, Parallel Courses, Find All Possible Recipes from Given Supplies, Build a Matrix With Conditions
     '''
 
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:

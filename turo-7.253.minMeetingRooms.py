@@ -10,8 +10,11 @@ class Solution:
     Input: [[7,10],[2,4]]
     Output: 1
 
-    Related Topics
+    Related Topics:
     Heap, Greedy, Sort
+
+    Next challenges:
+    56 252 452 1094
     '''
     def minMeetingRooms(self, intervals):
         n = len(intervals)

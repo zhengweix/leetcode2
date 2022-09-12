@@ -24,11 +24,10 @@ class Solution:
     0 <= k <= 2 * 109
 
     Related Topics
-    Linked List， Two Pointers
+    Linked List, Two Pointers
 
     Next challenges:
-    Rotate Array
-    Split Linked List in Parts
+    Rotate Array, Split Linked List in Parts
     '''
     def rotateRight(self, head, k: int):
         if not head or not head.next:

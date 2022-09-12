@@ -20,6 +20,9 @@ class Solution:
 
     Related Topics
     Array, Sliding Window
+
+    Next Challeges:
+    K Radius Subarray Averages
     '''
     def numOfSubarrays(self, arr, k, threshold):
         res = 0

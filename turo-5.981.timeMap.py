@@ -32,8 +32,11 @@ class TimeMap:
     All the timestamps timestamp of set are strictly increasing.
     At most 2 * 105 calls will be made to set and get.
 
-    Related Topics
+    Related Topics:
     Hash Table, String, Binary Search, Design
+
+    Next Challeges:
+    Stock Price Fluctuation
     '''
     def __init__(self):
         self.dict = defaultdict(list)
