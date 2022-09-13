@@ -1,3 +1,4 @@
+from collections import *
 class Solution:
     '''
     There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai.
@@ -34,28 +35,28 @@ class Solution:
     Course Schedule, Alien Dictionary, Minimum Height Trees, Sequence Reconstruction, Course Schedule III, Parallel Courses, Find All Possible Recipes from Given Supplies, Build a Matrix With Conditions
     '''
 
-    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
-        order = []
+    def findOrder(self, numCourses, prerequisites):
         indeg = [0 for i in range(numCourses)]
-        graph = defaultdict(list)
-        for i, p in enumerate(prerequisites):
-            graph[p[1]].append(p[0])
-            indeg[p[0]] += 1
+        for pair in prerequisites:
+            indeg[pair[0]] += 1
 
-        sources = []
+        ans = []
         for i in range(numCourses):
             if indeg[i] == 0:
-                sources.append(i)
+                ans.append(i)
+        for u in ans:
+            for pair in prerequisites:
+                if pair[1] == u:
+                    indeg[pair[0]] -= 1
+                    if indeg[pair[0]] == 0:
+                        ans.append(pair[0])
 
-        while sources:
-            u = sources.pop(0)
-            order.append(u)
-            for g in graph[u]:
-                indeg[g] -= 1
-                if indeg[g] == 0:
-                    sources.append(g)
-
-        if len(order) != numCourses:
+        if len(ans) != numCourses:
             return []
+        return ans
 
-        return order
+    def main(self):
+        print(self.findOrder(2, [[1,0]]))
+
+S = Solution()
+S.main()
