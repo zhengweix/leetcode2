@@ -5,7 +5,7 @@ class TimeMap:
     Design a time-based key-value data structure that can store multiple values for the same key at different time stamps and retrieve the key's value at a certain timestamp.
     Implement the TimeMap class:
     TimeMap() Initializes the object of the data structure.
-    void set(String key, String value, int timestamp) Stores the key key with the value value at the given time timestamp.
+    void set(String key, String value, int timestamp) Stores the key with the value at the given time timestamp.
     String get(String key, int timestamp) Returns a value such that set was called previously, with timestamp_prev <= timestamp. If there are multiple such values, it returns the value associated with the largest timestamp_prev. If there are no values, it returns "".
     void remove() Remove the key-value pair stored at the exact timestamp.
 
@@ -38,28 +38,49 @@ class TimeMap:
     Next Challeges:
     Stock Price Fluctuation
     '''
+    #? keywords: time-based, multiple values for the same key,
+    #?           get - timestamp_prev <= timestamp, largest timestamp_prev,
+    #?           del - at the exact timestamp
+    #? approach: dict -> list -> tuple - key -> [(timestamp, value)]
+    #?           sorting - heap
+    # input ["TimeMap", "set", "get", "get", "set", "get", "get"]
+    #       [[], ["foo", "bar", 1], ["foo", 1], ["foo", 3], ["foo", "bar2", 4], ["foo", 4], ["foo", 5]]
     def __init__(self):
+        """
+        Initialize your data structure here.
+        """
         self.dict = defaultdict(list)
-
+    # tc: logn
     def set(self, key: str, value: str, timestamp: int) -> None:
-        if key == None or value == None or timestamp == None:
-            return
-        return heappush(self.dict[key], (timestamp, value))
+        heappush(self.dict[key], (-timestamp, value))
 
+    # tc: nlogn
     def get(self, key: str, timestamp: int) -> str:
-        if key == None or timestamp == None:
-            return
-
-        for i in range(len(self.dict[key])-1, -1, -1):
-            time, val = self.dict[key][i]
-            if time <= timestamp:
-                return val
-        return ''
+        ans = ''
+        if key in self.dict:
+            cache = []
+            while self.dict[key] and -self.dict[key][0][0] > timestamp:
+                cache.append(heapq.heappop(self.dict[key]))
+            if self.dict[key]:
+                ans = self.dict[key][0][1]
+            if cache:
+                for ele in cache:
+                    heapq.heappush(self.dict[key], ele)
+        return ans
 
     def remove(self, key: str, timestamp: int):
-        if key == None or timestamp == None:
-            return
+        if key in self.dict:
+            for ele in self.dict[key]:
+                if ele[0] == -timestamp:
+                    self.dict[key].remove(ele)
 
-        for set0 in self.dict[key]:
-            if set0[0] == timestamp:
-                self.dict[key].remove(set0)
+    def main(self):
+        timeMap = TimeMap()
+        timeMap.set("foo", "bar", 1)
+        print(timeMap.get("foo", 3))
+        timeMap.set("foo", "bar2", 4)
+        print(timeMap.get("foo", 4))
+        print(timeMap.get("foo", 5))
+
+S = TimeMap()
+S.main()

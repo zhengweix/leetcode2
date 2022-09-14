@@ -24,20 +24,36 @@ class Solution:
     Next Challeges:
     K Radius Subarray Averages
     '''
-    def numOfSubarrays(self, arr, k, threshold):
-        res = 0
-        winSum, winStart = 0, 0
-        for winEnd in range(len(arr)):
-            winSum += arr[winEnd]
+    #? keywords: average, greater than or equal, subset of k
+    #? the number of sub-arrays
+    #? approach: sliding window
+    # input: arr - [2,2,2,2,5,5,5,8]
+    #        k = 3
+    #        threshold = 4
+    # output: 3
+    def numOfSubarrays1(self, arr, k, threshold):
+        ans, winStart, winSum = 0, 0, 0
+        for winEnd, v in enumerate(arr): # winEnd = k - 1
+            winSum += v # [2,2,2],[2,2,2],[2,2,5],[2,5,5],[5,5,5],[5,5,8]
             if winEnd >= k-1:
-                if winSum/k >= threshold:
-                    res += 1
-                winSum -= arr[winStart]
-                winStart += 1
-        return res
+                if winSum / k >= threshold: # 2,2,3,4,5,6
+                    ans += 1 # 0,0,0,1,2,3
+                winSum -= arr[winStart] # 4,4,7,10,10,13
+                winStart += 1 #1,2,3,4,5,6
+        return ans
+
+    def numOfSubarrays1(self, arr, k, threshold):
+        ans, winSum = 0, 0
+        for winEnd, v in enumerate(arr):
+            winSum += v
+            if winEnd >= k:
+                winSum -= arr[winEnd-k]
+            if winEnd >= k-1 and winSum >= threshold*k:
+                ans += 1
+        return ans
 
     def main(self):
-        print(self.numOfSubarrays([2,2,2,2,5,5,5,8], 3, 4))
+        print(self.numOfSubarrays1([2,2,2,2,5,5,5,8], 3, 4))
 
 S = Solution()
 S.main()

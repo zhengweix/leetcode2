@@ -34,29 +34,42 @@ class Solution:
     Next challenges:
     Course Schedule, Alien Dictionary, Minimum Height Trees, Sequence Reconstruction, Course Schedule III, Parallel Courses, Find All Possible Recipes from Given Supplies, Build a Matrix With Conditions
     '''
-
-    def findOrder(self, numCourses, prerequisites):
-        indeg = [0 for i in range(numCourses)]
+    #? keywords: prerequisites, one way ordering, empty array, bi -> ai
+    #? approach: consider course/vertices and prerequisites/edges as graph, topological sort
+    def findOrder1(self, numCourses, prerequisites):
+        # input: numCourses 4
+        #        prerequisites [[1,0],[2,0],[3,1],[3,2]]
+        # output: [0,2,1,3]
+        #? any course has no prerequisite
+        indeg = [0 for i in range(numCourses)] # [0,0,0,0]
+        #? go through prerequisites, compute indeg of v
         for pair in prerequisites:
             indeg[pair[0]] += 1
-
+        # indeg = [0,1,1,2]
+        #? store all coures having no prerequisite
+        queue = []
+        for u in range(numCourses):
+            if indeg[u] == 0:
+                queue.append(u)
+        # queue = [0]
         ans = []
-        for i in range(numCourses):
-            if indeg[i] == 0:
-                ans.append(i)
-        for u in ans:
+        #? to find new couses have no prerequite
+        while queue:
+            u = queue.pop(0) # 0,1,2
+            ans.append(u) # [0],[0,1],[0,1,2]
             for pair in prerequisites:
-                if pair[1] == u:
-                    indeg[pair[0]] -= 1
-                    if indeg[pair[0]] == 0:
-                        ans.append(pair[0])
-
-        if len(ans) != numCourses:
-            return []
+                v1, u1 = pair[0], pair[1]
+                if u1 == u:
+                    #? course v1's num of prerequisites decreased by 1
+                    indeg[v1] -= 1
+                    if indeg[v1] == 0:
+                        queue.append(v1)
+        # queue = [1, 2],[2],[3]
+        # indeg = [0,0,0,2],[0,0,0,1],[0,0,0,0]
         return ans
 
     def main(self):
-        print(self.findOrder(2, [[1,0]]))
+        print(self.findOrder(4, [[1,0],[2,0],[3,1],[3,2]]))
 
 S = Solution()
 S.main()
