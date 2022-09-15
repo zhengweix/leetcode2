@@ -46,15 +46,12 @@ class TimeMap:
     # input ["TimeMap", "set", "get", "get", "set", "get", "get"]
     #       [[], ["foo", "bar", 1], ["foo", 1], ["foo", 3], ["foo", "bar2", 4], ["foo", 4], ["foo", 5]]
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
         self.dict = defaultdict(list)
-    # tc: logn
+    # min heap tc: logn
     def set(self, key: str, value: str, timestamp: int) -> None:
         heappush(self.dict[key], (-timestamp, value))
 
-    # tc: nlogn
+    # min heap tc: n tc: n
     def get(self, key: str, timestamp: int) -> str:
         ans = ''
         if key in self.dict:
@@ -68,6 +65,7 @@ class TimeMap:
                     heapq.heappush(self.dict[key], ele)
         return ans
 
+    # tc: n
     def remove(self, key: str, timestamp: int):
         if key in self.dict:
             for ele in self.dict[key]:
@@ -76,8 +74,14 @@ class TimeMap:
 
     def main(self):
         timeMap = TimeMap()
-        timeMap.set("foo", "bar", 1)
-        print(timeMap.get("foo", 3))
+        timeMap.set("foo", "bar21", 21)
+        timeMap.set("foo", "bar1", 1)
+        timeMap.set("foo", "bar36", 36)
+        timeMap.set("foo", "bar12", 12)
+        timeMap.set("foo", "bar43", 43)
+        timeMap.set("foo", "bar7", 7)
+        print(timeMap.dict['foo'])
+        print(timeMap.get("foo", 23))
         timeMap.set("foo", "bar2", 4)
         print(timeMap.get("foo", 4))
         print(timeMap.get("foo", 5))

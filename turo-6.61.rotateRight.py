@@ -29,7 +29,7 @@ class Solution:
     Next challenges:
     Rotate Array, Split Linked List in Parts
     '''
-    def rotateRight(self, head, k: int):
+    def rotateRight1(self, head, k: int):
         if not head or not head.next:
             return head
 
@@ -55,6 +55,34 @@ class Solution:
         pointer1.next = None
         pointer2.next = head
         return res
+
+    #? keywords: linked list, right rotation
+    #? approach: find tail to join, break node, two pointer
+    # input: head = [1,2,3,4,5]
+    #        k = 2
+    # output [4,5,1,2,3]
+    def rotateRight(self, head, k: int):
+        p1 = head # find tail to join
+        p2 = head # find break node
+        n = 1
+        while p1.next:
+            p1 = p1.next
+            n += 1
+        k = k % n
+        if k == 0:
+            return head
+        # p1 at tail
+        # find break node
+        i = 0
+        while p2.next and i < n-k-1:
+            p2 = p2.next
+            i += 1
+        # p2 at break node
+        ans = p2.next # new head
+        p2.next = None # new tail
+        p1.next = head
+        return ans
+
 
     def main(self):
         head = ListNode(1)
