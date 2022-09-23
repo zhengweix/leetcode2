@@ -16,24 +16,44 @@ class Solution:
     -105 <= nums[i] <= 105
 
     Next challenges:
-    16 18 259
+    Two Sum, 3Sum Closest, 4Sum, 3Sum Smaller, Number of Arithmetic Triplets
     '''
-    def threeSum(self, nums: List[int]) -> List[List[int]]:
-        len1, res = len(nums), []
-        nums = sorted(nums)
-        for i, num in enumerate(nums):
-            if i > 0 and num == nums[i-1]:
-                continue
-            left, right = i + 1, len1 - 1
-            while left < right:
-                sum1 = num + nums[left] + nums[right]
-                if sum1 > 0:
-                    right -= 1
-                elif sum1 < 0:
-                    left += 1
+    # nums[i] + nums[j]  == -nums[k]
+    # [-3, 0, 1, 2, -1, 1, -2]
+    # tc: O(n^2) sc: O(n)
+    def threeSum(self, nums):
+        def helper(nums1, target):
+            lo, hi = 0, len(nums1)-1
+            pairs = []
+            while lo < hi:
+                if nums1[lo] + nums1[hi] == target:
+                    pairs.append([-target, nums1[lo], nums1[hi]])
+                    hi -= 1
+                    lo += 1
+                    #* removing duplicates
+                    while lo < hi and nums1[lo] == nums1[lo-1]:
+                        lo += 1
+                    while lo < hi and nums1[hi] == nums1[hi+1]:
+                        hi -= 1
+                elif nums1[lo] + nums1[hi] > target:
+                    hi -= 1
                 else:
-                    res.append([num, nums[left], nums[right]])
-                    left += 1
-                    while nums[left] == nums[left - 1] and left < right:
-                        left += 1
-        return res
+                    lo += 1
+            return pairs
+
+        ans = []
+        n = len(nums)
+        if n > 2:
+            nums.sort() # [-3, -2, -1, 0, 1, 1, 2]
+            for i in range(n):
+                #* removing duplicates
+                if i > 0 and nums[i] == nums[i - 1]:
+                    continue
+                ans = ans + helper(nums[i+1:], -nums[i])
+        return ans
+
+    def main(self):
+        print(self.threeSum([-3, 0, 1, 2, -1, 1, -2]))
+
+S = Solution()
+S.main()

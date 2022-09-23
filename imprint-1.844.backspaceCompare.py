@@ -22,6 +22,9 @@ class Solution:
     1 <= s.length, t.length <= 200
     s and t only contain lowercase letters and '#' characters.
 
+    Related Topics
+    Two Pointers, String, Stack, Simulation
+
     Follow up: Can you solve it in O(n) time and O(1) space?
     '''
     def backspaceCompare(self, s: str, t: str) -> bool:
