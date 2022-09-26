@@ -15,13 +15,33 @@ class Solution:
     Explanation: The answer is "wke", with the length of 3.
     Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
 
+    Input: s = " "
+    Output: 1
+
     Constraints:
     0 <= s.length <= 5 * 104
     s consists of English letters, digits, symbols and spaces.
 
     Next challenges:
     159 340 992 1695 2067 2260
+
+    Hash Table, String, Sliding Window
     '''
+    def lengthOfLongestSubstring(self, s):
+        ans, winStart = 0, 0
+        chars = {}
+        for winEnd, char in enumerate(s):
+            if char in chars:
+                winStart = max(winStart, chars[char]+1)
+            chars[char] = winEnd
+            ans = max(winEnd - winStart + 1, ans)
+        return ans
+
+    def main(self):
+        print(self.lengthOfLongestSubstring("pwwkew"))
+
+S = Solution()
+S.main()
 
 
 
@@ -48,12 +68,7 @@ class Solution:
 
 
 
-    def lengthOfLongestSubstring(self, s: str) -> int:
-        ch = {}
-        k, start = 0, 0
-        for end, c in enumerate(s):
-            if c in ch:
-                start = max(start, ch[c] + 1)
-            ch[c] = end
-            k = max(k, end - start + 1)
-        return k
+
+
+
+
