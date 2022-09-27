@@ -3,6 +3,7 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+from listNode import ListNode
 class Solution:
     '''
     Given the head of a linked list, remove the nth node from the end of the list and return its head.
@@ -23,9 +24,21 @@ class Solution:
     0 <= Node.val <= 100
     1 <= n <= sz
 
-    Follow up: Could you do this in one pass?
+    Follow up:
+    Could you do this in one pass?
+
+    Linked ListTwo Pointers
 
     Next challenges:
     1721 1474 2095
     '''
-    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+    def removeNthFromEnd(self, head, n):
+        dummy = fast = slow = ListNode(next = head)
+        while fast:
+            if n < 0:
+                slow = slow.next
+            n -= 1
+            fast = fast.next
+
+        slow.next = slow.next.next
+        return dummy.next

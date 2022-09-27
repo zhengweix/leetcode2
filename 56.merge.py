@@ -14,19 +14,25 @@ class Solution:
     1 <= intervals.length <= 104
     intervals[i].length == 2
     0 <= starti <= endi <= 104
-    '''
-    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
-        result = []
-        intervals.sort(key=lambda x: x[0])
-        current = intervals[0]
-        for i in range(1, len(intervals)):
-            interval = intervals[i]
-            if interval[0] <= current[1]:
-                current = [current[0], max(interval[1], current[1])]
-            else:
-                result.append(current)
-                current = interval
 
-        result.append(current)
-        return result
-#495 57 253 616 763 986
+    Insert Interval, Meeting Rooms, Meeting Rooms II, Teemo Attacking, Add Bold Tag in String, Range Module, Employee Free Time, Partition Labels, Interval List Intersections, Amount of New Area Painted Each Day, Longest Substring of One Repeating Character, Count Integers in Intervals, Divide Intervals Into Minimum Number of Groups
+    '''
+    def merge(self, intervals):
+        intervals.sort(key=lambda x: x[0])
+        ans = [intervals[0]]
+        end = intervals[0][1]
+        for i in range(1, len(intervals)):
+            itvl = intervals[i]
+            if itvl[0] <= end:
+                end = max(end, itvl[1])
+                ans[-1] = [ans[-1][0], end]
+            else:
+                ans.append(itvl)
+                end = itvl[1]
+        return ans
+
+    def main(self):
+        print(self.merge([[1,3],[2,6],[8,10],[15,18]]))
+
+S = Solution()
+S.main()

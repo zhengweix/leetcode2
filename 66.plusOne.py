@@ -1,7 +1,6 @@
 class Solution:
     '''
     You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
-
     Increment the large integer by one and return the resulting array of digits.
 
     Input: digits = [1,2,3]
@@ -38,3 +37,33 @@ class Solution:
                 digits[i] += 1
                 return digits
         return [1]+digits
+
+    def plusOne1(self, digits):
+        digits.reverse()
+        ans, carry = [], 0
+        for digit in digits:
+            ans.append((carry + digit) % 10)
+            carry = (carry + digit) // 10
+
+        if carry > 0:
+            ans.append(carry)
+        ans.reverse()
+        return ans
+
+    def plusOne2(self, digits):
+        num = int(''.join(map(str, digits)))
+        num += 1
+        return [int(x) for x in str(num)]
+
+    def plusOne3(self, digits):
+        carry = 1
+        for i in reversed(range(len(digits))):
+            carry, digits[i] = divmod(digits[i] + carry, 10)
+            if not carry: return digits
+        return [carry] + digits
+
+    def main(self):
+        print(self.plusOne([9]))
+
+S = Solution()
+S.main()
