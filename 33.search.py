@@ -20,5 +20,32 @@ class Solution:
     All values of nums are unique.
     nums is an ascending array that is possibly rotated.
     -104 <= target <= 104
+
+    Array, Binary Search
+
+    Search in Rotated Sorted Array II, Pour Water Between Buckets to Make Water Levels Equal
     '''
-    def search(self, nums: List[int], target: int) -> int:
+    def search(self, nums, target):
+        lo, hi = 0, len(nums) - 1
+        while lo <= hi:
+            mid = lo + hi >> 1
+            if nums[mid] == target:
+                return mid
+            if nums[lo] <= nums[mid]:
+                if nums[lo] <= target < nums[mid]:
+                    hi = mid - 1
+                else:
+                    lo = mid + 1
+            else:
+                if nums[mid] < target <= nums[hi]:
+                    lo = mid + 1
+                else:
+                    hi = mid - 1
+        return -1
+
+
+    def main(self):
+        print(self.search([2,0], 0))
+
+S = Solution()
+S.main()

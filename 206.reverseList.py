@@ -24,19 +24,10 @@ class Solution:
 
     Next challenges:
     234 156 2074 2130
+    #649 2074 2130 234
     '''
     def reverseList(self, head: ListNode) -> ListNode:
-        pre = None
+        prev = None
         while head:
-            head.next, head, pre = pre, head.next, head
-
-        return pre
-
-    def reverseList1(self, head: ListNode) -> ListNode:
-        def helper(node, pre):
-            if not node:
-                return pre
-            node.next, node, pre = pre, node.next, node
-            return helper(node, pre)
-        return helper(head, None)
-#649 2074 2130 234
+            head.next, head, prev = prev, head.next, head
+        return prev
