@@ -19,7 +19,6 @@ class Solution:
     Two Sum, 3Sum Closest, 4Sum, 3Sum Smaller, Number of Arithmetic Triplets
     '''
     # nums[i] + nums[j]  == -nums[k]
-    # [-3, 0, 1, 2, -1, 1, -2]
     # tc: O(n^2) sc: O(n)
     def threeSum(self, nums):
         def helper(nums1, target):
