@@ -16,6 +16,8 @@ class Solution:
     -104 < nums[i], target < 104
     All the integers in nums are unique.
     nums is sorted in ascending order
+
+    #702
     '''
     def search(self, nums: List[int], target: int) -> int:
         left = 0
@@ -30,4 +32,3 @@ class Solution:
             else:
                 left = mid + 1
         return -1
-#702
