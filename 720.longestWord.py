@@ -18,21 +18,27 @@ class Solution:
     1 <= words.length <= 1000
     1 <= words[i].length <= 30
     words[i] consists of lowercase English letters.
-    '''
-    def longestWord1(self, words):
-        words = sorted(words, key=lambda i: (-len(i), i))
-        for i, word in enumerate(words):
-            isbuilt = True
-            for j in range(len(word)-1, 0, -1):
-                if word[:j] not in words:
-                    isbuilt = False
-                    break
-            if isbuilt:
-                return word
-            else:
-                i += 1
-        return ''
 
+    Array, Hash Table, String, Trie, Sorting
+
+    Longest Word in Dictionary through Deleting, Implement Magic Dictionary, Longest Word With All Prefixes
+    '''
     def longestWord(self, words):
         def helper(word):
-            for
+            n = len(word) - 1
+            while n > 0:
+                if word[:n] not in words:
+                    return False
+                n -= 1
+            return True
+
+        for word in sorted(words, key=lambda x: (-len(x), x)):
+            if helper(word):
+                return word
+        return ''
+
+    def main(self):
+        print(self.longestWord(["w","wo","wor","worl","world"]))
+
+S = Solution()
+S.main()

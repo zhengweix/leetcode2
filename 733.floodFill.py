@@ -1,4 +1,5 @@
 class Solution:
+
     def floodFill(self, image: List[List[int]], sr: int, sc: int, newColor: int) -> List[List[int]]:
         lr, lc = len(image), len(image[0])
         sources = [[sr, sc]]
