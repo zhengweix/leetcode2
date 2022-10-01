@@ -1,17 +1,52 @@
+from math import *
 class Solution:
-    def totalFruit(self, fruits: List[int]) -> int:
-        start = 0
-        dict = {}
-        d = 0
+    '''
+    You are visiting a farm that has a single row of fruit trees arranged from left to right. The trees are represented by an integer array fruits where fruits[i] is the type of fruit the ith tree produces.
+    You want to collect as much fruit as possible. However, the owner has some strict rules that you must follow:
+    You only have two baskets, and each basket can only hold a single type of fruit. There is no limit on the amount of fruit each basket can hold.
+    Starting from any tree of your choice, you must pick exactly one fruit from every tree (including the start tree) while moving to the right. The picked fruits must fit in one of your baskets.
+    Once you reach a tree with fruit that cannot fit in your baskets, you must stop.
+    Given the integer array fruits, return the maximum number of fruits you can pick.
+
+    Example 1:
+    Input: fruits = [1,2,1]
+    Output: 3
+    Explanation: We can pick from all 3 trees.
+
+    Example 2:
+    Input: fruits = [0,1,2,2]
+    Output: 3
+    Explanation: We can pick from trees [1,2,2].
+    If we had started at the first tree, we would only pick from trees [0,1].
+
+    Example 3:
+    Input: fruits = [1,2,3,2,2]
+    Output: 4
+    Explanation: We can pick from trees [2,3,2,2].
+    If we had started at the first tree, we would only pick from trees [1,2].
+
+    Constraints:
+    1 <= fruits.length <= 105
+    0 <= fruits[i] < fruits.length
+
+    Array, Hash TableS, liding Window
+
+    Longest Nice Subarray
+    '''
+    def totalFruit(self, fruits):
+        ans, start, freq = 0, 0, {}
         for end, fruit in enumerate(fruits):
-            if fruit not in dict:
-                dict[fruit] = 0
-            dict[fruit] += 1
-            while len(dict) > 2:
-                fruit_ = fruits[start]
-                dict[fruit_] -= 1
-                if dict[fruit_] == 0:
-                    del dict[fruit_]
+            freq[fruit] = 1 + freq.get(fruit, 0)
+            while len(freq) > 2:
+                freq[fruits[start]] -= 1
+                if freq[fruits[start]] == 0:
+                    freq.pop(fruits[start])
                 start += 1
-            d = max(d, end - start + 1)
-        return d
+            ans = max(ans, end - start + 1)
+        return ans
+
+    def main(self):
+        print(self.totalFruit([1,2,1]))
+
+S = Solution()
+S.main()
