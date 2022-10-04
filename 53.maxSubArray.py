@@ -20,13 +20,25 @@ class Solution:
 
     Next challenges:
     152 697 978 1749 1746 2272
+    Maximum Product Subarray, Degree of an Array, Longest Turbulent Subarray, Maximum Score Of Spliced Array, Maximum Absolute Sum of Any Subarray, Maximum Subarray Sum After One Operation, Substring With Largest Variance, Count Subarrays With Score Less Than K
     '''
-    def maxSubArray(self, nums: List[int]) -> int:
-        sum1, sum2 = nums[0], 0
+    def maxSubArray(self, nums):
+        #* Kadane's algorithm, it defines an array s[] whose ith element represents the largest contiguous sum ending at nums[i]. Then, s[i+1] = max(s[i], 0) + nums[i]
+        ans = sm = 0
         for num in nums:
-            if sum2 < 0:
-                sum2 = num
-            else:
-                sum2 += num
-            sum1 = max(sum1, sum2)
-        return sum1
+            #* 0 is result of the empty s[]
+            sm = max(0, sm+num)
+            ans = max(ans, sm)
+        return ans
+
+    def maxSubArray1(self, nums):
+        dp = [nums[0]] * len(nums)
+        for i in range(1, len(nums)):
+            dp[i] = max(0, dp[i-1])+nums[i]
+        return max(dp)
+
+    def main(self):
+        print(self.maxSubArray1([-2,1,-3,4,-1,2,1,-5,4]))
+
+S = Solution()
+S.main()
