@@ -1,3 +1,4 @@
+from collections import *
 class Solution:
     '''
     Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
@@ -14,12 +15,15 @@ class Solution:
     -30 <= nums[i] <= 30
     The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
 
-    Follow up: Can you solve the problem in O(1) extra space complexity? (The output array does not count as extra space for space complexity analysis.)
+    Follow up:
+    Can you solve the problem in O(1) extra space complexity? (The output array does not count as extra space for space complexity analysis.)
+
+    Array, Prefix Sum
 
     Next challenges:
     42 152 265 2163
     '''
-    def productExceptSelf(self, nums: List[int]) -> List[int]:
+    def productExceptSelf(self, nums):
         res, zeros, prod = [], [], 1
         for i, num in enumerate(nums):
             if num == 0:
@@ -41,7 +45,7 @@ class Solution:
                     res.append(prod1//num)
         return res
 
-    def productExceptSelf1(self, nums: List[int]) -> List[int]:
+    def productExceptSelf1(self, nums):
         '''
         The concept is simple, you want to calculate the products from both left side and right side (excluding itself). The res[i] is left * right.
         '''
@@ -58,3 +62,8 @@ class Solution:
             right *= nums[j]
         return res
 
+    def main(self):
+        print(self.productExceptSelf1([1,2,3,4]))
+
+S = Solution()
+S.main()
