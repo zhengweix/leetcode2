@@ -15,8 +15,19 @@ class Solution:
     1 <= nums.length <= 105
     -109 <= nums[i] <= 109
 
+    Array, Hash Table, Sorting
+
     Next challenges:
-    220
+    220 Contains Duplicate II, Contains Duplicate III, Make Array Zero by Subtracting Equal Amounts
     '''
-    def containsDuplicate(self, nums: List[int]) -> bool:
+    def containsDuplicate(self, nums):
         return len(set(nums)) != len(nums)
+
+    def containsDuplicate1(self, nums):
+        seen = set()
+        for x in nums:
+            if x in seen:
+                return True
+            else:
+                seen.add(x)
+        return False
