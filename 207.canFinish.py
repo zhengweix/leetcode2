@@ -28,28 +28,6 @@ class Solution:
     Graph Valid Tree, Minimum Height Trees, Course Schedule III, Build a Matrix With Conditions
     '''
     def canFinish(self, numCourses, prerequisites):
-        graph = defaultdict(list)
-        indeg = [0 for i in range(numCourses)]
-        for i, e in enumerate(prerequisites):
-            graph[e[0]].append(e[1])
-            indeg[e[1]] += 1
-
-        sources, order = [], []
-        for i in range(numCourses):
-            if indeg[i] == 0:
-                sources.append(i)
-
-        while sources:
-            u = sources.pop(0)
-            order.append(u)
-            for g in graph[u]:
-                indeg[g] -= 1
-                if indeg[g] == 0:
-                    sources.append(g)
-
-        return len(order) == numCourses
-
-    def canFinish1(self, numCourses, prerequisites):
         indeg = [0] * numCourses
         for p in prerequisites:
             indeg[p[1]] += 1
@@ -62,12 +40,29 @@ class Solution:
         while queue:
             u = queue.pop(0)
             cnt += 1
-            for p in prerequisites:
-                if p[0] == u:
-                    indeg[p[1]] -= 1
-                    if indeg[p[1]] == 0:
-                        queue.append(p[1])
+            for u, v in prerequisites:
+                if u == u:
+                    indeg[v] -= 1
+                    if indeg[v] == 0:
+                        queue.append(v)
         return cnt == numCourses
+
+    def canFinish1(self, numCourses, prerequisites):
+        def helper(x):
+            ''' detecting if cycle is detected. '''
+            if seen[x]:
+                return seen[x] == 1
+            seen[x] = 1
+            for u, v in prerequisites:
+                if u == x and helper(v):
+                        return True
+            seen[x] = 2
+            return False
+        seen = [0] * numCourses
+        for i in range(numCourses):
+            if helper(i):
+                return False
+        return True
 
     def main(self):
         print(self.canFinish1(2, [[1,0], [0, 1]]))
