@@ -1,3 +1,4 @@
+from functools import *
 class Solution:
     '''
     Given a non-empty array nums containing only positive integers, find if the array can be partitioned into two subsets such that the sum of elements in both subsets is equal.
@@ -16,34 +17,42 @@ class Solution:
 
     Next challenges:
     698 1981 2025 2035
+    Partition to K Equal Sum Subsets, Minimize the Difference Between Target and Chosen Elements, Maximum Number of Ways to Partition an Array, Partition Array Into Two Arrays to Minimize Sum Difference, Find Subarrays With Equal Sum
     '''
-    def canPartition(self, nums: List[int]) -> bool:
-        sum1 = sum(nums)
-        if sum1 % 2:
+    def canPartition(self, nums):
+        if (sm := sum(nums)) % 2:
             return False
-        len1 = len(nums)
-        target = sum1 // 2
-        dp = [[False for y in range(target + 1)] for x in range(len1)]
-        for i in range(len1):
-            dp[i][0] = True
-        for j in range(1, target + 1):
-            dp[0][j] = j == nums[0]
-        for i in range(1, len1):
-            for j in range(1, target + 1):
-                if dp[i - 1][j]:
-                    dp[i][j] = dp[i - 1][j]
-                elif j > nums[i]:
-                    dp[i][j] = dp[i - 1][j - nums[i]]
-        return dp[len1 - 1][target]
-
-    def canPartition1(self, nums: List[int]) -> bool:
-        s = sum(nums)
-        if s % 2:
-            return False
-        target = s // 2
+        target = sm // 2
         dp = [0] * (target + 1)
-        dp[0] = 1
-        for current in nums:
-            for new_target in range(target, current - 1, -1):
-                dp[new_target] = dp[new_target] or dp[new_target - current]
+        dp[0] = True
+        for x in nums:
+            for t in range(target, current - 1, -1):
+                dp[t] = dp[t] or dp[t - x]
         return dp[target]
+
+    def canPartition1(self, nums):
+        if (sm := sum(nums)) % 2:
+            return False
+        @lru_cache(None)
+        def helper(i, tar):
+            if tar <= 0:
+                return tar == 0
+            if i == len(nums):
+                return False
+            return helper(i+1, tar-nums[i]) or helper(i+1, tar)
+        return helper(0, sm//2)
+
+    def canPartition2(self, nums):
+        if (sm := sum(nums)) % 2:
+            return False
+        bits = 1
+        for x in nums:
+            bits |= bits << x
+        return bool(bits & (1 << sm // 2))
+
+
+    def main(self):
+        print(self.canPartition1([1, 2, 5]))
+
+S = Solution()
+S.main()

@@ -34,23 +34,22 @@ class Solution:
     '''
     # l1 = [2, 4, 3], l2 = [5, 6, 4]
     def addTwoNumbers(self, l1, l2):
-        carry, head = 0, ListNode()
-        l0 = head
+        carry = 0
+        dummy = l0 = ListNode()
         #! also consider carry after l1, l2 iteration done
         while l1 or l2 or carry:
             if l1:
                 carry += l1.val
                 l1 = l1.next
-
             if l2:
                 carry += l2.val
                 l2 = l2.next
 
+            #l0.next = l0 = ListNode(carry % 10)
             l0.next = ListNode(carry % 10)
             l0 = l0.next
             carry //= 10
-
-        return head.next
+        return dummy.next
 
     def main(self):
         l1 = ListNode()

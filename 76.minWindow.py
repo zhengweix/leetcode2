@@ -23,15 +23,10 @@ class Solution:
     1 <= m, n <= 105
     s and t consist of uppercase and lowercase English letters.
 
-    Follow up: Could you find an algorithm that runs in O(m + n) time?
+    Follow up:
+    Could you find an algorithm that runs in O(m + n) time?
+
+    Hash Table, String, Sliding Window
     '''
     def minWindow(self, s: str, t: str) -> str:
-        start, result = "", 0
-        dict = defaultdict(int)
-        for c in s:
-            dict[c] += 1
-
-        while start < len(s) - len(t):
-            else:
-                start += 1
-        return result
+        

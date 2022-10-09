@@ -29,25 +29,34 @@ class Solution:
     -1000 <= Node.val <= 1000
     -1000 <= targetSum <= 1000
 
+    Tree, Depth-First Search, Breadth-First Search, Binary Tree
+
     Next challenges:
     113 437 666 129
+    Path Sum II, Binary Tree Maximum Path Sum, Sum Root to Leaf Numbers, Path Sum III, Path Sum IV
     '''
-    def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
+    def hasPathSum(self, root, targetSum):
         if not root:
             return False
-
         if root.val == targetSum and not root.left and not root.right:
             return True
-
         return self.hasPathSum(root.left, targetSum - root.val) or self.hasPathSum(root.right, targetSum - root.val)
 
-    def hasPathSum1(self, root: Optional[TreeNode], targetSum: int) -> bool:
-        def helper(node, currentSum):
-            if node:
-                currentSum += node.val
-                if currentSum == targetSum and not node.left and not node.right:
-                    return True
-                else:
-                    return helper(node.left, currentSum) or helper(node.right, currentSum)
+    def hasPathSum1(self, root, targetSum):
+        if not root:
+            return targetSum == 0
+        return self.hasPathSum(root.left, targetSum - root.val) or self.hasPathSum(root.right, targetSum - root.val)
 
-        return True if helper(root, 0) else False
+    def hasPathSum2(self, root, targetSum):
+        stack = [(root, 0)]
+        while stack:
+            node, sm = stack.pop()
+            if node:
+                sm += node.val
+                if not node.left and not node.right and sm == targetSum:
+                    return True
+                if node.right:
+                    stack.append((node.right, sm))
+                if node.left:
+                    stack.append((node.left, sm))
+        return False
