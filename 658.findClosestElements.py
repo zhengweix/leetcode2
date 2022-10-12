@@ -38,7 +38,6 @@ class Solution:
                 else:
                     if (mid < len(arr)-1 and arr[mid + 1] > xx):
                         return helper2(mid, mid+1, xx)
-
                     lo = mid + 1
             return lo
 
