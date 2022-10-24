@@ -34,17 +34,17 @@ class Solution:
                 nums[i], nums[j] = nums[j], nums[i]
             else:
                 i += 1
-
         for i, n in enumerate(nums):
             if n != i + 1:
                 return n
 
     def findDuplicate1(self, nums):
+        #* mark the element if its index corresponding to the number has been seen. encounter the marked index again,
         for x in nums:
             nums[abs(x)-1] *= -1
             if nums[abs(x)-1] > 0: return abs(x)
     def main(self):
-        print(self.findDuplicate1([1,3,4,2,2]))
+        print(self.findDuplicate([7,9,7,4,2,8,7,7,1,5]))
 
 S = Solution()
 S.main()

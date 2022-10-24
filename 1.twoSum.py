@@ -24,6 +24,22 @@ class Solution(object):
 
     Next challenges:
     15 18 167 170 653 1099 1679 1711 2006 2023 2200
+    Two Sum II - Input Array Is Sorted
+    Two Sum III - Data structure design
+    Two Sum IV - Input is a BST
+    Two Sum Less Than K
+    Max Number of K-Sum Pairs
+    Count Good Meals
+    Count Number of Pairs With Absolute Difference K
+    Number of Pairs of Strings With Concatenation Equal to Target
+    Find All K-Distant Indices in an Array
+    First Letter to Appear Twice
+    Number of Excellent Pairs
+    Number of Arithmetic Triplets
+    Node With Highest Edge Score
+    Check Distances Between Same Letters
+    Find Subarrays With Equal Sum
+    Largest Positive Integer That Exists With Its Negative
     '''
     def twoSum(self, nums, target):
         d = {}
