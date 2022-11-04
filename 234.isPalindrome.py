@@ -27,7 +27,8 @@ class Solution:
     Palindrome Number, Valid Palindrome, Reverse Linked List, Maximum Twin Sum of a Linked List
     '''
     # tc: O(n) sc: O(1)
-    def isPalindrome(self, head):
+    @staticmethod
+    def isPalindrome(head):
         slow = fast = head
         while fast and fast.next: #locate middle node
             fast = fast.next.next
@@ -41,3 +42,11 @@ class Solution:
             head = head.next
             prev = prev.next
         return not prev
+
+    @staticmethod
+    def isPalindrome1(head):
+        ans = []
+        while head:
+            ans.append(head.val)
+            head = head.next
+        return ans == ans[::-1]

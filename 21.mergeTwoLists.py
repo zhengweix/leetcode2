@@ -31,11 +31,12 @@ class Solution:
 
     Merge k Sorted Lists, Merge Sorted Array, Sort List, Shortest Word Distance II, Add Two Polynomials Represented as Linked Lists, Longest Common Subsequence Between Sorted Arrays
     '''
-    def mergeTwoLists(self, list1:, list2):
+    def mergeTwoLists(self, list1, list2):
         dummy = list0 = ListNode()
         while list1 and list2:
             if list1.val < list2.val:
-                list0.next = list0 = list1
+                list0 = list1
+                list0 = list0.next
                 list1 = list1.next
             else:
                 list0.next = list0 = list2
@@ -43,7 +44,7 @@ class Solution:
         list0.next = list1 or list2
         return dummy.next
 
-    def mergeTwoLists1(self, list1:, list2):
+    def mergeTwoLists1(self, list1, list2):
         if not list1 or (list2 and list1.val > list2.val):
             list1, list2 = list2, list1
         if list1:

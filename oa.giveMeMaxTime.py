@@ -47,10 +47,8 @@ class Solution:
             s += str(arr[1]) if arr[1] != '?' else str(9)
         else:
             s += str(arr[1]) if arr[1] != '?' else str(3)
-
         s += ':'
         s += str(arr[2]) if arr[2] != '?' else str(5)
         s += str(arr[3]) if arr[3] != '?' else str(9)
-
         return s
 

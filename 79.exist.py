@@ -27,7 +27,7 @@ class Solution:
     1 <= word.length <= 15
     board and word consists of only lowercase and uppercase English letters.
 
-    Array， Backtracking， Matrix
+    Array, Backtracking, Matrix
 
     Word Search II
 
@@ -38,7 +38,7 @@ class Solution:
             return False
 
         m, n = len(board), len(board[0])
-        def helper (i, j , k):
+        def helper (i, j, k):
             if board[i][j] == word[k]:
                 #! careful length is n-1
                 if k == len(word) - 1:

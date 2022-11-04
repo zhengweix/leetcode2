@@ -16,12 +16,17 @@ class Solution:
 
     Next challenges:
     320 784 2044
+    320. Generalized Abbreviation
+    784. Letter Case Permutation
+    1982. Find Array Given Subset Sums
     '''
-    def subsets(self, nums: List[int]) -> List[List[int]]:
-        subsets = [[]]
-        for num in nums:
-            for i in range(len(subsets)):
-                set = list(subsets[i])
-                set.append(num)
-                subsets.append(set)
-        return subsets
+    @staticmethod
+    def subsets(nums):
+        ans = [[]]
+        for x in nums:
+            for i in range(len(ans)):
+                if ans[i]+[x] not in ans:
+                    ans.append(ans[i]+[x])
+        return ans
+
+print(Solution.subsets([1, 2, 3]))

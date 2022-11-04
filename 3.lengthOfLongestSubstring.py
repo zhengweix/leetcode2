@@ -24,17 +24,25 @@ class Solution:
 
     Next challenges:
     159 340 992 1695 2067 2260
+    Longest Substring with At Most Two Distinct Characters
+    Longest Substring with At Most K Distinct Characters
+    Subarrays with K Different Integers
+    Maximum Erasure Value
+    Number of Equal Count Substrings
+    Minimum Consecutive Cards to Pick Up
+    Longest Nice Subarray
+    Optimal Partition of String
 
     Hash Table, String, Sliding Window
     '''
     def lengthOfLongestSubstring(self, s):
-        ans, winStart = 0, 0
-        chars = {}
-        for winEnd, char in enumerate(s):
-            if char in chars:
-                winStart = max(winStart, chars[char]+1)
-            chars[char] = winEnd
-            ans = max(winEnd - winStart + 1, ans)
+        '''Using a dictionary ch to keep track of visited chars and their last positions in string. While moving a pointer i forward, if s[end] has seen before, move anchor start (forward only) to 1 + ch[c] to make sure no duplicates between start and end.'''
+        ans, start, ch = 0, 0, {}
+        for end, c in enumerate(s):
+            if c in ch:
+                start = max(start, ch[c]+1)
+            ans = end - start + 1
+            ch[c] = end
         return ans
 
     def main(self):

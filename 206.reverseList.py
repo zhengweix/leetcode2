@@ -27,7 +27,4 @@ class Solution:
     #649 2074 2130 234
     '''
     def reverseList(self, head: ListNode) -> ListNode:
-        prev = None
-        while head:
-            head.next, head, prev = prev, head.next, head
-        return prev
+        pre = head.next

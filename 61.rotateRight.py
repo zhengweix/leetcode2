@@ -27,43 +27,16 @@ class Solution:
     Linked List, Two Pointers
 
     Next challenges:
-    Rotate Array, Split Linked List in Parts
+    Rotate Array, Split Linked List in Parts 
 
     turo
     '''
-    def rotateRight1(self, head, k: int):
-        if not head or not head.next:
-            return head
-
-        n = 0
-        pointer0 = head
-        while pointer0:
-            pointer0 = pointer0.next
-            n += 1
-
-        m = k % n
-        if k == 0:
-            return head
-
-        pointer1, pointer2 = head, head
-        for i in range(m):
-            pointer2 = pointer2.next
-
-        while pointer2.next:
-            pointer1 = pointer1.next
-            pointer2 = pointer2.next
-
-        res = pointer1.next
-        pointer1.next = None
-        pointer2.next = head
-        return res
-
     #? keywords: linked list, right rotation
     #? approach: find tail to join, break node, two pointer
     # input: head = [1,2,3,4,5]
     #        k = 2
     # output [4,5,1,2,3]
-    def rotateRight(self, head, k: int):
+    def rotateRight(self, head, k):
         p1 = head # find tail to join
         p2 = head # find break node
         n = 1
@@ -85,7 +58,21 @@ class Solution:
         p1.next = head
         return ans
 
-
+    def rotateRight1(self, head, k):
+        if not head:
+            return head
+        n, node = 0, head
+        while node:
+            n, node = n+1, node.next
+        if k := k % n:
+            fast = slow = head
+            while fast.next:
+                fast = fast.next
+                k -= 1
+                if k < 0:
+                    slow = slow.next
+            fast.next, slow.next, head = head, None, slow.next
+        return head
     def main(self):
         head = ListNode(1)
         head.next = ListNode(2)

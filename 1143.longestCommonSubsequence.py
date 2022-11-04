@@ -26,6 +26,37 @@ class Solution:
 
     String, Dynamic Programming
 
-    Longest Palindromic Subsequence, Delete Operation for Two Strings, Shortest Common Supersequence, Maximize Number of Subsequences in a String
+    Longest Palindromic Subsequence,
+    Delete Operation for Two Strings,
+    Shortest Common Supersequence,
+    Maximize Number of Subsequences in a String
     '''
-    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
+    @staticmethod
+    def longestCommonSubsequence(text1, text2):
+        m, n = len(text1), len(text2)
+        dp = [[0] * (m + 1) for _ in range(n+1)]
+        for y in range(1, n+1):
+            for x in range(1, m+1):
+                if text2[y-1] == text1[x-1]:
+                    dp[y][x] = dp[y-1][x-1]+1
+                else:
+                    dp[y][x] = max(dp[y - 1][x], dp[y][x - 1])
+        return dp[n][m]
+
+    @staticmethod
+    def longestCommonSubsequence1(text1, text2):
+        m, n = len(text1), len(text2)
+        dp = [0] * (n + 1)
+        for i in reversed(range(m)):
+            prev = 0
+            for j in reversed(range(n)):
+                curr = dp[j]
+                if text1[i] == text2[j]:
+                    dp[j] = 1 + prev
+                else:
+                    dp[j] = max(dp[j], dp[j + 1])
+                prev = curr
+        return dp[0]
+
+print(Solution.longestCommonSubsequence1("bsbininm", "jmjkbkjkv"))
+
