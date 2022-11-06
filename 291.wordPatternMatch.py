@@ -5,7 +5,7 @@ class Solution:
     A string s matches a pattern if there is some bijective mapping of single characters to strings such that if each character in pattern is replaced by the string it maps to, then the resulting string is s. A bijective mapping means that no two characters map to the same string, and no character maps to two different strings.
 
     Example 1:
-    Input: pattern = "abab", s = "redblueredblue"
+    Input: pattern = "abab", s = "abab"
     Output: true
     Explanation: One possible mapping is as follows:
     'a' -> "red"
@@ -27,20 +27,31 @@ class Solution:
 
     Hash Table, String, Backtracking
     '''
+    # tc:O(n*C(m, n)) sc: O(m + n)
     @staticmethod
     def wordPatternMatch(pattern, s):
-        def helper(s1, pattern1, mp):
-            if not pattern1:
-                return s1 == ''
+        def helper(i, j):
+            '''Return True if pattern[i:] can be mapping to s[j:]'''
+            if i == len(pattern) and j == len(s):
+                return True
+            if i == len(pattern) or j == len(s):
+                return False
+            if pattern[i] in mp:
+                if mp[pattern[i]] == s[j:j+len(mp[pattern[i]])] and helper(i+1, j+len(mp[pattern[i]])):
+                    return True
+                return False
+            for k in range(j+1, len(s)+1):
+                if s[j:k] in mp: # skip pre-stored non-workable segmentations
+                    continue
+                mp[pattern[i]] = s[j:k]
+                mp[s[j:k]] = pattern[i]
+                if helper(i+1, k):
+                    return True
+                mp.pop(pattern[i]) # store all possible non-workable segmentations
+                if mp[pattern[i]] != s[j:k]:
+                    mp.pop(s[j:k])
+            return False
+        mp = {}
+        return helper(0, 0)
 
-            p = pattern[0]
-            for i in range(1, len(s1)+1):
-                if (mp[p] and s1[:i] == mp[p]) or not mp[p]:
-                    mp[p] = s1[:i]
-                    if not helper(s1[i:], pattern1[1:], mp):
-                        if mp[p]:
-                            del mp[p]
-
-        return helper(s, pattern, defaultdict(str))
-
-print(Solution.wordPatternMatch("aaaa", "asdasdasdasd"))
+print(Solution.wordPatternMatch("ab", "aa"))
