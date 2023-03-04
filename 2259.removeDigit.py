@@ -29,14 +29,16 @@ class Solution:
 
     String, Greedy, Enumeration
 
-    Remove K Digits, Remove Vowels from a String, Second Largest Digit in a String
+    402. Remove K Digits
+    1119. Remove Vowels from a String
+    1796. Second Largest Digit in a String
     '''
-    def removeDigit(self, number, digit):
-        st = str(number)
-        return str(max([int(''.join(st[:i] + st[i+1:])) for i in [occ.start() for occ in finditer(str(digit), st)]]))
+    @staticmethod
+    def removeDigit(number, digit):
+        res = []
+        for o in finditer(digit, number):
+            i = o.start()
+            res.append(int(number[:i]+number[i+1:]))
+        return str(max(res))
 
-    def main(self):
-        print(self.removeDigit(1231, 1))
-
-S = Solution()
-S.main()
+print(Solution.removeDigit('-1231', '1'))
