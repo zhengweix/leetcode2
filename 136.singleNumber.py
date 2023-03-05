@@ -1,3 +1,5 @@
+from functools import reduce
+from operator import xor
 class Solution:
     '''
     Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
@@ -24,14 +26,16 @@ class Solution:
 
     Single Number II, Single Number III
     '''
-    def singleNumber(self, nums):
+    @staticmethod
+    def singleNumber(nums):
         ans = 0
         for num in nums:
-            ans = ans ^ num
+            ans ^= num
         return ans
 
-    def main(self):
-        print(self.singleNumber([4,1,2,1,2]))
+    @staticmethod
+    def singleNumber1(nums):
+        return reduce(xor, nums)
 
-S = Solution()
-S.main()
+
+print(Solution.singleNumber([4,1,2,1,2]))
