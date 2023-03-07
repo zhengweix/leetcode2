@@ -1,3 +1,4 @@
+from functools import *
 class Solution:
     '''
     On an n x n chessboard, a knight starts at the cell (row, column) and attempts to make exactly k moves. The rows and columns are 0-indexed, so the top-left cell is (0, 0), and the bottom-right cell is (n - 1, n - 1).
@@ -24,7 +25,20 @@ class Solution:
     0 <= row, column <= n - 1
 
     Dynamic Programming
-
-    Out of Boundary Paths
+    
+    More challenges
+    576. Out of Boundary Paths
     '''
-    def knightProbability(self, n: int, k: int, row: int, column: int) -> float:
+    @staticmethod
+    def knightProbability(n: int, k: int, row: int, column: int) -> float:
+        @lru_cache(None)
+        def helper(k1, i, j):
+            """Return probability in chessboard at (i, j) with k moves left."""
+            if not (0 <= i < n and 0 <= j < n):
+                return 0
+            if k1 == 0:
+                return 1
+            return sum(helper(k1-1, i+ii, j+jj) for ii, jj in ((-2, -1), (-2, 1), (-1, -2), (-1, 2), (1, -2), (1, 2), (2, -1), (2, 1)))/8
+        return helper(k, row, column)
+
+print(Solution.knightProbability(3, 2, 0, 0))
