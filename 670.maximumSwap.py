@@ -34,4 +34,4 @@ class Solution:
             nums[ii], nums[mm] = nums[mm], nums[ii]
         return int("".join(map(str, nums)))
 
-print(Solution.maximumSwap(2798))
+print(Solution.maximumSwap(123456789))
